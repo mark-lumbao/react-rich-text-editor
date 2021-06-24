@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 import { Configuration } from 'webpack';
 
 const devServer = ({
@@ -52,12 +53,16 @@ const config: Configuration & { devServer: typeof devServer } = ({
     extensions: ['.ts', '.tsx', '.js', ',jsx'],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'React TS',
       template: `${__dirname}/src/template.html`,
       minify: true,
     }),
-    new CleanWebpackPlugin(),
+    // @ts-ignore
+    new CompressionPlugin({
+      algorithm: 'gzip',
+    }),
   ],
   devServer,
 });

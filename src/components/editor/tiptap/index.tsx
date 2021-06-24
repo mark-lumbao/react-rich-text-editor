@@ -1,12 +1,14 @@
 import { Fragment } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
+import Document from '@tiptap/extension-document';
+import Paragraph from '@tiptap/extension-paragraph';
+import Text from '@tiptap/extension-text';
 import MenuBar from './menu-bar';
 
 const App = () => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      Document, Paragraph, Text,
     ],
     content: `
       <h2>
