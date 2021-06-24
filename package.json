@@ -17,8 +17,12 @@
   "author": "Mark Anthony Lumbao",
   "license": "ISC",
   "dependencies": {
+    "@tiptap/extension-character-count": "^2.0.0-beta.12",
     "@tiptap/extension-document": "^2.0.0-beta.12",
+    "@tiptap/extension-dropcursor": "^2.0.0-beta.16",
+    "@tiptap/extension-history": "^2.0.0-beta.13",
     "@tiptap/extension-paragraph": "^2.0.0-beta.15",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.25",
     "@tiptap/extension-text": "^2.0.0-beta.12",
     "@tiptap/react": "^2.0.0-beta.51",
     "jest-transform-stub": "^2.0.0",

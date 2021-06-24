@@ -52,6 +52,32 @@ const config: Configuration & { devServer: typeof devServer } = ({
     ],
     extensions: ['.ts', '.tsx', '.js', ',jsx'],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](@tiptap\/core)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+        vendorb: {
+          test: /[\\/]node_modules[\\/](prosemirror-view)[\\/]/,
+          name: 'vendorb',
+          chunks: 'all',
+        },
+        vendorc: {
+          test: /[\\/]node_modules[\\/](prosemirror-model)[\\/]/,
+          name: 'vendorc',
+          chunks: 'all',
+        },
+        vendord: {
+          test: /[\\/]node_modules[\\/](@tiptap\/extension-character-count)[\\/]/,
+          name: 'vendord',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

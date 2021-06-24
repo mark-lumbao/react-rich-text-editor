@@ -7,9 +7,7 @@ const App = () => (
     <h1>
       This is a
       &nbsp;
-      <u>React Application</u>
-      &nbsp;
-      🔥🚀
+      <u>TipTap Demo</u>
     </h1>
     <br />
     <Suspense fallback={<div>Loading Editor...</div>}>
