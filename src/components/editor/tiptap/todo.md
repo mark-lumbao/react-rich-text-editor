@@ -21,7 +21,7 @@
     - ink
     - Underline
 
-## Extensions
+## Extensions ( implemented )
 
     - CharacterCount (exclusive use on My Feed)
     - Dropcursor

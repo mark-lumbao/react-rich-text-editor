@@ -7,11 +7,19 @@ const App = () => (
     <h1>
       This is a
       &nbsp;
-      <u>TipTap Demo</u>
+      <a href="https://www.tiptap.dev/">TipTap</a>
+      &nbsp;
+      Demo
     </h1>
     <br />
     <Suspense fallback={<div>Loading Editor...</div>}>
-      <Editor />
+      <Editor
+        extensionsConfig={{
+          limit: 100,
+          useCharacterCount: true,
+          placeholder: 'Write a goddarn text!',
+        }}
+      />
     </Suspense>
   </main>
 );

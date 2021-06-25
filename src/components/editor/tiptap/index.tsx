@@ -1,35 +1,39 @@
-import { Fragment } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
-import Document from '@tiptap/extension-document';
-import Paragraph from '@tiptap/extension-paragraph';
-import Text from '@tiptap/extension-text';
-import Dropcursor from '@tiptap/extension-dropcursor';
-import CharacterCount from '@tiptap/extension-character-count';
-import Placeholder from '@tiptap/extension-placeholder';
-import History from '@tiptap/extension-history';
-import MenuBar from './menu-bar';
+import editorExtensions, { EditorExtensionsType } from './partials/ext';
+import editorNodes from './partials/nodes';
+import MenuBar from './partials/menu-bar';
 
-const App = () => {
+export type EditorType = {
+  content?: string,
+  extensionsConfig?: EditorExtensionsType,
+}
+
+const Editor = ({
+  content, extensionsConfig: { limit, useCharacterCount, ...restExt },
+}: EditorType) => {
   const editor = useEditor({
     extensions: [
-      History, Dropcursor, CharacterCount, Placeholder,
-      Document, Paragraph, Text,
+      ...editorExtensions({ limit, useCharacterCount, ...restExt }),
+      ...editorNodes,
     ],
-    content: `
-      <h2>
-        Hi there,
-      </h2>
-      <p>
-        this is a <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
-      </p>`,
+    content,
   });
 
   return (
-    <Fragment>
+    <div className="editor--container">
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
-    </Fragment>
+      {useCharacterCount && (
+        <div className="character-count">
+          {editor && `
+            ${editor.getCharacterCount()}
+            ${limit !== undefined ? `/${limit}` : ''}
+            characters
+            `}
+        </div>
+      )}
+    </div>
   );
 };
 
-export default App;
+export default Editor;
