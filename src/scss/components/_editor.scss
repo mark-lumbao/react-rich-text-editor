@@ -1,5 +1,18 @@
+$primary-color: #ececec;
+$secondary-color: #585c61;
+$accent-color: #cdcdcd;
+
 /* Basic editor styles */
 .ProseMirror {
+  /* Placeholder (at the top) */
+  p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: $accent-color;
+    pointer-events: none;
+    height: 0;
+  }
+
   > * + * {
     margin-top: 0.75em;
   }
@@ -19,12 +32,12 @@
   }
 
   code {
-    background-color: rgba(#616161, 0.1);
-    color: #616161;
+    background-color: rgba($secondary-color, 0.1);
+    color: $secondary-color;
   }
 
   pre {
-    background: #0D0D0D;
+    background: $secondary-color;
     color: #FFF;
     font-family: 'JetBrainsMono', monospace;
     padding: 0.75rem 1rem;
@@ -45,55 +58,48 @@
 
   blockquote {
     padding-left: 1rem;
-    border-left: 2px solid rgba(#0D0D0D, 0.1);
+    border-left: 2px solid rgba($secondary-color, 0.1);
   }
 
   hr {
     border: none;
-    border-top: 2px solid rgba(#0D0D0D, 0.1);
+    border-top: 2px solid rgba($secondary-color, 0.1);
     margin: 2rem 0;
   }
 
   padding: 1em;
 }
 
-/* Placeholder (at the top) */
-.ProseMirror p.is-editor-empty:first-child::before {
-  content: attr(data-placeholder);
-  float: left;
-  color: #ced4da;
-  pointer-events: none;
-  height: 0;
-}
-
 .editor--menu {
+  background: $primary-color;
   display: flex;
   gap: 2px;
-  border-bottom: 3px solid #000;
   padding: .5em;
 
   button {
-    border: 2px solid #000;
-    border-radius: 2px;
+    border: none;
     background: none;
     font-weight: bolder;
     text-transform: uppercase;
     font-size: 12px;
+    color: $secondary-color;
+    padding: 8px;
   }
+
   button:hover {
-    background: #000;
-    color: #fff;
+    background: $accent-color;
     cursor: pointer;
   }
 }
+
 .editor--container {
   min-width: 300px;
-  border: 3px solid #000;
+  border: 2px dashed #cdcdcd;
   border-radius: 5px;
 }
 
 .character-count {
   margin-top: 1rem;
-  color: #868e96;
+  color: $accent-color;
   padding: 0 1em 1em 1em;
 }
