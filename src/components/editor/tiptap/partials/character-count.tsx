@@ -1,12 +1,13 @@
-import { Editor } from '@tiptap/react';
+import { useContext } from 'react';
+import { EditorContext } from 'components/editor/tiptap';
 import { EditorExtensionsType } from './ext';
 
-export interface CharacterCountProps extends EditorExtensionsType {
-  editor: Editor;
-}
+export interface CharacterCountProps extends EditorExtensionsType {}
 
-const CharacterCount = ({ editor, useCharacterCount = false, limit }: CharacterCountProps) => (
-  useCharacterCount && (
+const CharacterCount = ({ useCharacterCount = false, limit }: CharacterCountProps) => {
+  const { editor } = useContext(EditorContext);
+
+  return useCharacterCount && (
     <div className="character-count">
       {editor && `
         ${editor.getCharacterCount()}
@@ -14,7 +15,7 @@ const CharacterCount = ({ editor, useCharacterCount = false, limit }: CharacterC
         characters
         `}
     </div>
-  )
-);
+  );
+};
 
 export default CharacterCount;

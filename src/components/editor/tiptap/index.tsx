@@ -1,4 +1,5 @@
-import { useEditor, EditorContent } from '@tiptap/react';
+import { createContext } from 'react';
+import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions, { EditorExtensionsType } from './partials/ext';
 import editorNodes from './partials/nodes';
 import MenuBar from './partials/menu-bar';
@@ -9,7 +10,9 @@ export type EditorType = {
   extensionsConfig?: EditorExtensionsType,
 }
 
-const Editor = ({ content, extensionsConfig }: EditorType) => {
+export const EditorContext = createContext<{ editor: Editor }>(null);
+
+const EditorMain = ({ content, extensionsConfig }: EditorType) => {
   const editor = useEditor({
     extensions: [
       ...editorExtensions(extensionsConfig),
@@ -19,12 +22,14 @@ const Editor = ({ content, extensionsConfig }: EditorType) => {
   });
 
   return (
-    <div className="editor--container">
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
-      <CharacterCount editor={editor} {...extensionsConfig} />
-    </div>
+    <EditorContext.Provider value={{ editor }}>
+      <div className="editor--container">
+        <MenuBar />
+        <EditorContent editor={editor} />
+        <CharacterCount {...extensionsConfig} />
+      </div>
+    </EditorContext.Provider>
   );
 };
 
-export default Editor;
+export default EditorMain;
