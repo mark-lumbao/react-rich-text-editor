@@ -1,0 +1,30 @@
+@use './colors' as colors;
+
+.editor--menu {
+  background: colors.$primary-color;
+  display: flex;
+  gap: 2px;
+  padding: .5em;
+
+  .editor--menu-group {
+    border-right: 2px solid colors.$accent-color;
+  }
+  .editor--menu-group:last-child {
+    border-right: none;
+  }
+
+  button {
+    border: none;
+    background: none;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: colors.$secondary-color;
+    padding: 8px;
+  }
+
+  button.is-active, button:hover {
+    background: colors.$accent-color;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,7 @@
+@use './colors' as colors;
+
+.editor--container {
+  min-width: 300px;
+  border: 2px dashed colors.$accent-color;
+  border-radius: 5px;
+}

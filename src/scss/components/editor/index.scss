@@ -1,0 +1,72 @@
+@use './colors' as colors;
+@use './menu';
+@use './container';
+@use './character-count';
+
+/* Editor document styles */
+.ProseMirror {
+  /* Placeholder (at the top) */
+  p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: colors.$accent-color;
+    pointer-events: none;
+    height: 0;
+  }
+
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(colors.$secondary-color, 0.1);
+    color: colors.$secondary-color;
+  }
+
+  pre {
+    background: colors.$secondary-color;
+    color: #FFF;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(colors.$secondary-color, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(colors.$secondary-color, 0.1);
+    margin: 2rem 0;
+  }
+
+  padding: 1em;
+}

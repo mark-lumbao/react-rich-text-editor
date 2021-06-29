@@ -2,17 +2,17 @@
 
 ## Nodes
 
-    - CodeBlock
-    - Document
-    - Heading
+    - CodeBlock - done
+    - Document - done
+    - Paragraph - done
+    - Text - done
+    - Heading - done
     - HorizontalRule
     - Image
     - ListItem (BulletList & OrderedList)
     - Mention (need in My Feed page)
-    - Paragraph
     - Table (TableRow, TableCell & TableHeader)
     - TaskItem
-    - Text
 
 ## Marks
 
@@ -21,9 +21,9 @@
     - ink
     - Underline
 
-## Extensions ( implemented )
+## Extensions
 
-    - CharacterCount (exclusive use on My Feed)
-    - Dropcursor
-    - History
-    - Placeholder
+    - CharacterCount (exclusive use on My Feed) - done
+    - Dropcursor - done
+    - History - done
+    - Placeholder - done

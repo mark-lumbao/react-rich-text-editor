@@ -10,12 +10,10 @@ export type EditorExtensionsType = Partial<{
   HistoryOptions &
   DropcursorOptions>;
 
-const editorExtensions = ({
-  useCharacterCount, ...xt
-}: EditorExtensionsType) => [
-  Dropcursor.configure({ ...xt }),
-  useCharacterCount && CharacterCount.configure({ ...xt }),
-  Placeholder.configure({ ...xt }),
+const editorExtensions = (xt: EditorExtensionsType) => [
+  Dropcursor.configure(xt),
+  CharacterCount.configure(xt),
+  Placeholder.configure(xt),
   History,
 ];
 

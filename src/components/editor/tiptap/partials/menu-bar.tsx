@@ -1,9 +1,13 @@
 import { Editor } from '@tiptap/react';
+import HistoryGroup from './menu-group/history-group';
+import CodeblockGroup from './menu-group/codeblock-group';
+import HeaingGroup from './menu-group/heading-group';
 
 const MenuBar = ({ editor }: { editor: Editor }) => editor && (
   <div className="editor--menu">
-    <button type="button" onClick={() => editor.chain().focus().undo().run()}>Undo</button>
-    <button type="button" onClick={() => editor.chain().focus().redo().run()}>Redo</button>
+    <HistoryGroup editor={editor} />
+    <CodeblockGroup editor={editor} />
+    <HeaingGroup editor={editor} />
   </div>
 );
 

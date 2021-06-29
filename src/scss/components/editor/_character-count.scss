@@ -1,0 +1,7 @@
+@use './colors' as colors;
+
+.character-count {
+  margin-top: 1rem;
+  color: colors.$accent-color;
+  padding: 0 1em 1em 1em;
+}
