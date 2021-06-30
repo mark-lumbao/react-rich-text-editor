@@ -101,5 +101,6 @@ module.exports = {
     'no-useless-constructor': 0,
     'no-await-in-loop': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
+    'no-alert': 0,
   },
 };

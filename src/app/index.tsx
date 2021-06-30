@@ -14,6 +14,7 @@ const App = () => (
     <br />
     <Suspense fallback={<div>Loading Editor...</div>}>
       <Editor
+        style={{ maxWidth: 'max-content' }}
         extensionsConfig={{
           limit: 100,
           useCharacterCount: true,

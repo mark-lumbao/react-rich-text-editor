@@ -7,12 +7,12 @@
     - Paragraph - done
     - Text - done
     - Heading - done
-    - HorizontalRule
-    - Image
-    - ListItem (BulletList & OrderedList)
-    - Mention (need in My Feed page)
+    - HorizontalRule - done
+    - Image - done
+    - ListItem (BulletList & OrderedList) - done
     - Table (TableRow, TableCell & TableHeader)
     - TaskItem
+    - Mention (need in My Feed page)
 
 ## Marks
 
