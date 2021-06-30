@@ -55,24 +55,29 @@ const config: Configuration & { devServer: typeof devServer } = ({
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/](@tiptap\/core)[\\/]/,
-          name: 'vendor',
+        tiptap: {
+          test: /[\\/]node_modules[\\/](@tiptap[\\/]core)[\\/]/,
+          name: 'tiptap',
           chunks: 'all',
         },
-        vendorb: {
+        proseMirrorView: {
           test: /[\\/]node_modules[\\/](prosemirror-view)[\\/]/,
-          name: 'vendorb',
+          name: 'proseMirrorView',
           chunks: 'all',
         },
-        vendorc: {
+        proseMirrorModel: {
           test: /[\\/]node_modules[\\/](prosemirror-model)[\\/]/,
-          name: 'vendorc',
+          name: 'proseMirrorModel',
           chunks: 'all',
         },
-        vendord: {
-          test: /[\\/]node_modules[\\/](@tiptap\/extension-character-count)[\\/]/,
-          name: 'vendord',
+        proseMirrorTransform: {
+          test: /[\\/]node_modules[\\/](prosemirror-transform)[\\/]/,
+          name: 'proseMirrorTransform',
+          chunks: 'all',
+        },
+        tiptapCharacterCount: {
+          test: /[\\/]node_modules[\\/](@tiptap[\\/]extension-character-count)[\\/]/,
+          name: 'tiptapCharacterCount',
           chunks: 'all',
         },
       },

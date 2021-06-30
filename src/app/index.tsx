@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-const Editor = lazy(() => import('components/editor/tiptap'));
+const Editor = lazy(() => import('components/editor'));
 
 const App = () => (
   <main>
@@ -14,6 +14,7 @@ const App = () => (
     <br />
     <Suspense fallback={<div>Loading Editor...</div>}>
       <Editor
+        onChange={(value) => console.log(value)} // eslint-disable-line
         style={{ maxWidth: 'max-content' }}
         extensionsConfig={{
           limit: 100,

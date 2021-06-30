@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor/tiptap';
+import { EditorContext } from 'components/editor';
 
 const CodeblockGroup = () => {
   const { editor } = useContext(EditorContext);

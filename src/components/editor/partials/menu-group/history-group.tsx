@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor/tiptap';
+import { EditorContext } from 'components/editor';
 
 const HistoryGroup = () => {
   const { editor } = useContext(EditorContext);

@@ -4,21 +4,26 @@ import editorExtensions, { EditorExtensionsType } from './partials/ext';
 import editorNodes from './partials/nodes';
 import MenuBar from './partials/menu-bar';
 import CharacterCount from './partials/character-count';
+import './scss/index.scss';
 
-export interface EditorType extends HtmlHTMLAttributes<unknown> {
+export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
   content?: string;
   extensionsConfig?: EditorExtensionsType;
+  onChange?: (value: string) => void;
 }
 
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
-const EditorMain = ({ content, extensionsConfig, ...divProps }: EditorType) => {
+const EditorMain = ({
+  content, onChange, extensionsConfig, ...divProps
+}: EditorType) => {
   const editor = useEditor({
+    content,
+    onUpdate({ editor: ed }) { onChange(ed.getHTML()); },
     extensions: [
       ...editorExtensions(extensionsConfig),
       ...editorNodes,
     ],
-    content,
   });
 
   return (
