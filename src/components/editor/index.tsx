@@ -18,7 +18,7 @@ export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const EditorMain = ({
-  initialValue: content, onChange, extensionsConfig, ...divProps
+  initialValue: content, onChange, extensionsConfig, className, ...divProps
 }: EditorType) => {
   const editor = useEditor({
     content,
@@ -31,7 +31,7 @@ const EditorMain = ({
 
   return (
     <EditorContext.Provider value={{ editor }}>
-      <div className="editor--container" {...divProps}>
+      <div className={`editor--container ${className}`} {...divProps}>
         <Suspense fallback="Loading Menubar ...">
           <MenuBar />
         </Suspense>

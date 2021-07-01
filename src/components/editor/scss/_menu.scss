@@ -1,8 +1,15 @@
 @use './colors' as colors;
 
+.editor--menu__wrapper {
+  width: 100%;
+  overflow-y: scroll;
+}
+
 .editor--menu {
   background: colors.$primary-color;
   display: flex;
+  width: max-content;
+
   gap: 2px;
   padding: .5em;
 

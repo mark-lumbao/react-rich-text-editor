@@ -4,11 +4,13 @@ import HeaingGroup from './menu-group/heading-group';
 import MarkupGroup from './menu-group/markup-group';
 
 const MenuBar = () => (
-  <div className="editor--menu">
-    <HistoryGroup />
-    <CodeblockGroup />
-    <HeaingGroup />
-    <MarkupGroup />
+  <div className="editor--menu__wrapper">
+    <div className="editor--menu">
+      <HistoryGroup />
+      <CodeblockGroup />
+      <HeaingGroup />
+      <MarkupGroup />
+    </div>
   </div>
 );
 
