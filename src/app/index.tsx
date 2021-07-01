@@ -14,8 +14,9 @@ const App = () => (
     <br />
     <Suspense fallback={<div>Loading Editor...</div>}>
       <Editor
-        onChange={(value) => console.log(value)} // eslint-disable-line
         style={{ maxWidth: 'max-content' }}
+        onChange={(value) => console.log(value)} // eslint-disable-line
+        initialValue="<h1>Initial content</h1>"
         extensionsConfig={{
           limit: 100,
           useCharacterCount: true,

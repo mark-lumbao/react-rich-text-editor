@@ -1,21 +1,24 @@
-import { createContext, HtmlHTMLAttributes } from 'react';
+import {
+  lazy, Suspense, createContext, HtmlHTMLAttributes,
+} from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions, { EditorExtensionsType } from './partials/ext';
 import editorNodes from './partials/nodes';
-import MenuBar from './partials/menu-bar';
-import CharacterCount from './partials/character-count';
 import './scss/index.scss';
 
+const CharacterCount = lazy(() => import('./partials/character-count'));
+const MenuBar = lazy(() => import('./partials/menu-bar'));
+
 export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
-  content?: string;
+  initialValue?: string;
+  onChange?: (initialValue: string) => void;
   extensionsConfig?: EditorExtensionsType;
-  onChange?: (value: string) => void;
 }
 
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const EditorMain = ({
-  content, onChange, extensionsConfig, ...divProps
+  initialValue: content, onChange, extensionsConfig, ...divProps
 }: EditorType) => {
   const editor = useEditor({
     content,
@@ -29,9 +32,13 @@ const EditorMain = ({
   return (
     <EditorContext.Provider value={{ editor }}>
       <div className="editor--container" {...divProps}>
-        <MenuBar />
+        <Suspense fallback="Loading Menubar ...">
+          <MenuBar />
+        </Suspense>
         <EditorContent editor={editor} />
-        <CharacterCount {...extensionsConfig} />
+        <Suspense fallback="Loading Character counter ...">
+          <CharacterCount {...extensionsConfig} />
+        </Suspense>
       </div>
     </EditorContext.Provider>
   );
