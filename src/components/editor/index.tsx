@@ -4,6 +4,7 @@ import {
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions, { EditorExtensionsType } from './partials/ext';
 import editorNodes from './partials/nodes';
+import editorMarks from './partials/marks';
 import './scss/index.scss';
 
 const CharacterCount = lazy(() => import('./partials/character-count'));
@@ -26,6 +27,7 @@ const EditorMain = ({
     extensions: [
       ...editorExtensions(extensionsConfig),
       ...editorNodes,
+      ...editorMarks,
     ],
   });
 

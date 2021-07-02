@@ -16,9 +16,9 @@
 
 ## Marks
 
-    - Bold
-    - Italic
-    - ink
+    - Bold - done
+    - Italic - done
+    - Link - done
     - Underline
 
 ## Extensions
