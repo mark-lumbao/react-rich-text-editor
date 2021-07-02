@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import MenuGroup from './menu-group';
 
 const CodeblockGroup = () => {
   const { editor } = useContext(EditorContext);
   return editor && (
-    <div className="editor--menu-group">
+    <MenuGroup>
       <button
         type="button"
         className={editor.isActive('codeBlock') ? 'is-active' : ''}
@@ -12,7 +13,7 @@ const CodeblockGroup = () => {
       >
         Code
       </button>
-    </div>
+    </MenuGroup>
   );
 };
 

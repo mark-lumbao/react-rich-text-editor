@@ -1,23 +1,16 @@
 @use './colors' as colors;
 
-.editor--menu__wrapper {
-  width: 100%;
-  overflow-y: scroll;
-}
-
 .editor--menu {
-  background: colors.$primary-color;
   display: flex;
-  width: max-content;
+  flex-wrap: wrap;
+  align-items: center;
 
   gap: 2px;
   padding: .5em;
+  background: colors.$primary-color;
 
-  .editor--menu-group {
-    border-right: 2px solid colors.$accent-color;
-  }
-  .editor--menu-group:last-child {
-    border-right: none;
+  :last-child {
+    display: none;
   }
 
   button {
@@ -33,5 +26,13 @@
   button.is-active, button:hover {
     background: colors.$accent-color;
     cursor: pointer;
+  }
+
+  .divider {
+    background-color: rgba(13,13,13,.1);
+    height: 1.25rem;
+    margin-left: .5rem;
+    margin-right: .75rem;
+    width: 2px;
   }
 }

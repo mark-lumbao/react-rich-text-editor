@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import MenuGroup from './menu-group';
 
 const MarkupGroup = () => {
   const { editor } = useContext(EditorContext);
@@ -13,7 +14,7 @@ const MarkupGroup = () => {
   };
 
   return editor && (
-    <div className="editor--menu-group">
+    <MenuGroup>
       <button type="button" onClick={() => editor.chain().focus().setHorizontalRule().run()}>---</button>
       <button type="button" onClick={addImage}>Image</button>
       <button
@@ -30,7 +31,7 @@ const MarkupGroup = () => {
       >
         Ordered
       </button>
-    </div>
+    </MenuGroup>
   );
 };
 

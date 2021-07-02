@@ -1,11 +1,12 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import MenuGroup from './menu-group';
 
 const HeadingGroup = () => {
   const { editor } = useContext(EditorContext);
 
   return editor && (
-    <div className="editor--menu-group">
+    <MenuGroup>
       <button
         type="button"
         className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
@@ -27,7 +28,7 @@ const HeadingGroup = () => {
       >
         H3
       </button>
-    </div>
+    </MenuGroup>
   );
 };
 
