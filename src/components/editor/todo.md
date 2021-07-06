@@ -10,7 +10,7 @@
     - HorizontalRule - done
     - Image - done
     - ListItem (BulletList & OrderedList) - done
-    - Table (TableRow, TableCell & TableHeader)
+    - Table (TableRow, TableCell & TableHeader) - done
     - TaskItem
     - Mention (need in My Feed page)
 
@@ -19,7 +19,7 @@
     - Bold - done
     - Italic - done
     - Link - done
-    - Underline
+    - Underline - done
 
 ## Extensions
 

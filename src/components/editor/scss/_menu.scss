@@ -23,6 +23,10 @@
     padding: 8px;
   }
 
+  button:disabled {
+    display: none;
+  }
+
   button.is-active, button:hover {
     background: colors.$accent-color;
     cursor: pointer;

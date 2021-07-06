@@ -34,9 +34,7 @@ const EditorMain = ({
   return (
     <EditorContext.Provider value={{ editor }}>
       <div className={`editor--container ${className}`} {...divProps}>
-        <Suspense fallback="Loading Menubar ...">
-          <MenuBar />
-        </Suspense>
+        <Suspense fallback="Loading Menubar ..."><MenuBar /></Suspense>
         <EditorContent editor={editor} />
         <Suspense fallback="Loading Character counter ...">
           <CharacterCount {...extensionsConfig} />

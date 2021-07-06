@@ -75,9 +75,19 @@ const config: Configuration & { devServer: typeof devServer } = ({
           name: 'proseMirrorTransform',
           chunks: 'all',
         },
+        proseMirrorTables: {
+          test: /[\\/]node_modules[\\/](prosemirror-tables)[\\/]/,
+          name: 'proseMirrorTables',
+          chunks: 'all',
+        },
         tiptapCharacterCount: {
           test: /[\\/]node_modules[\\/](@tiptap[\\/]extension-character-count)[\\/]/,
           name: 'tiptapCharacterCount',
+          chunks: 'all',
+        },
+        tiptapTable: {
+          test: /[\\/]node_modules[\\/](@tiptap[\\/]extension-table)[\\/]/,
+          name: 'tiptapTable',
           chunks: 'all',
         },
       },
