@@ -18,6 +18,7 @@ const App = () => (
         style={{ maxWidth: 500 }}
         onChange={(value) => console.log(value)} // eslint-disable-line
         initialValue="<h1>Initial content</h1>"
+        nodesConfig={{ resizable: true }}
         extensionsConfig={{
           limit: 100,
           useCharacterCount: true,

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
 import MenuGroup from './menu-group';
 
-const TableOptions = () => {
+const TableGroup = () => {
   const { editor } = useContext(EditorContext);
   return (
     <MenuGroup>
@@ -64,4 +64,4 @@ const TableOptions = () => {
   );
 };
 
-export default TableOptions;
+export default TableGroup;

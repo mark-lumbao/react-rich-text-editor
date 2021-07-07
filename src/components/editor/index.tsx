@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions, { EditorExtensionsType } from './partials/ext';
-import editorNodes from './partials/nodes';
+import editorNodes, { EditorNodesType } from './partials/nodes';
 import editorMarks from './partials/marks';
 import './scss/index.scss';
 
@@ -14,19 +14,25 @@ export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
   initialValue?: string;
   onChange?: (initialValue: string) => void;
   extensionsConfig?: EditorExtensionsType;
+  nodesConfig?: EditorNodesType,
 }
 
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const EditorMain = ({
-  initialValue: content, onChange, extensionsConfig, className = '', ...divProps
+  initialValue: content,
+  onChange,
+  extensionsConfig,
+  nodesConfig,
+  className = '',
+  ...divProps
 }: EditorType) => {
   const editor = useEditor({
     content,
     onUpdate({ editor: ed }) { onChange(ed.getHTML()); },
     extensions: [
       ...editorExtensions(extensionsConfig),
-      ...editorNodes,
+      ...editorNodes(nodesConfig),
       ...editorMarks,
     ],
   });

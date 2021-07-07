@@ -8,12 +8,15 @@ import Image from '@tiptap/extension-image';
 import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
-import Table from '@tiptap/extension-table';
+import Table, { TableOptions } from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
 
-const editorNodes = [
+export type EditorNodesType = Partial<{
+} & TableOptions>;
+
+const editorNodes = (nd: EditorNodesType) => [
   Document,
   Text,
   Paragraph,
@@ -24,7 +27,7 @@ const editorNodes = [
   ListItem,
   BulletList,
   OrderedList,
-  Table,
+  Table.configure(nd),
   TableRow,
   TableCell,
   TableHeader,
