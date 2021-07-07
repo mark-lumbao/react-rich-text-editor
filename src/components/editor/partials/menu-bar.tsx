@@ -8,16 +8,16 @@ const MarkGroup = lazy(() => import('./menu-group/mark-group'));
 const TableGroup = lazy(() => import('./menu-group/table-group'));
 
 const MenuBar = () => (
-  <div className="editor--menu">
-    <Suspense fallback={<span>Loading menu items</span>}>
+  <Suspense fallback={<span>Loading menu items</span>}>
+    <div className="editor--menu">
       <HeaingGroup />
       <MarkGroup />
       <HistoryGroup />
       <CodeblockGroup />
       <MarkupGroup />
       <TableGroup />
-    </Suspense>
-  </div>
+    </div>
+  </Suspense>
 );
 
 export default MenuBar;

@@ -20,14 +20,14 @@ const MarkupGroup = () => {
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') && 'is-active'}
+        className={editor.isActive('bulletList') ? 'is-active' : ''}
       >
         Bulleted
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') && 'is-active'}
+        className={editor.isActive('orderedList') ? 'is-active' : ''}
       >
         Ordered
       </button>

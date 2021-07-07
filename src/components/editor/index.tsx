@@ -19,7 +19,7 @@ export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const EditorMain = ({
-  initialValue: content, onChange, extensionsConfig, className, ...divProps
+  initialValue: content, onChange, extensionsConfig, className = '', ...divProps
 }: EditorType) => {
   const editor = useEditor({
     content,
