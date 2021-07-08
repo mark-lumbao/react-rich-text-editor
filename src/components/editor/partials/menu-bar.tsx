@@ -6,6 +6,7 @@ const HeaingGroup = lazy(() => import('./menu-group/heading-group'));
 const MarkupGroup = lazy(() => import('./menu-group/markup-group'));
 const MarkGroup = lazy(() => import('./menu-group/mark-group'));
 const TableGroup = lazy(() => import('./menu-group/table-group'));
+const TasklistGroup = lazy(() => import('./menu-group/tasklist-group'));
 
 const MenuBar = () => (
   <Suspense fallback={<span>Loading menu items</span>}>
@@ -16,6 +17,7 @@ const MenuBar = () => (
       <CodeblockGroup />
       <MarkupGroup />
       <TableGroup />
+      <TasklistGroup />
     </div>
   </Suspense>
 );

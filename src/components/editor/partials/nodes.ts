@@ -12,6 +12,8 @@ import Table, { TableOptions } from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
+import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
 
 export type EditorNodesType = Partial<{
 } & TableOptions>;
@@ -31,6 +33,8 @@ const editorNodes = (nd: EditorNodesType) => [
   TableRow,
   TableCell,
   TableHeader,
+  TaskList,
+  TaskItem,
 ];
 
 export default editorNodes;
