@@ -1,5 +1,9 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import boldSvg from 'components/editor/assets/icons/bold.svg';
+import italicSvg from 'components/editor/assets/icons/italic.svg';
+import underlineSvg from 'components/editor/assets/icons/underlined.svg';
+import linkSvg from 'components/editor/assets/icons/link.svg';
 import MenuGroup from './menu-group';
 
 const MarkGroup = () => {
@@ -18,28 +22,28 @@ const MarkGroup = () => {
         className={editor.isActive('bold') ? 'is-active' : ''}
         onClick={() => editor.chain().focus().toggleBold().run()}
       >
-        Bold
+        <img alt="bold" src={boldSvg} />
       </button>
       <button
         type="button"
         className={editor.isActive('italic') ? 'is-active' : ''}
         onClick={() => editor.chain().focus().toggleItalic().run()}
       >
-        Italic
+        <img alt="italic" src={italicSvg} />
       </button>
       <button
         type="button"
         className={editor.isActive('underline') ? 'is-active' : ''}
         onClick={() => editor.chain().focus().toggleUnderline().run()}
       >
-        Underline
+        <img alt="underline" src={underlineSvg} />
       </button>
       <button
         type="button"
         className={editor.isActive('link') ? 'is-active' : ''}
         onClick={setLink}
       >
-        Link
+        <img alt="link" src={linkSvg} />
       </button>
       <button
         type="button"

@@ -1,5 +1,9 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import hrSvg from 'components/editor/assets/icons/horizontal-line.svg';
+import imgSvg from 'components/editor/assets/icons/image.svg';
+import bulettedSvg from 'components/editor/assets/icons/list_bulleted.svg';
+import numberedSvg from 'components/editor/assets/icons/list_numbered.svg';
 import MenuGroup from './menu-group';
 
 const MarkupGroup = () => {
@@ -15,21 +19,25 @@ const MarkupGroup = () => {
 
   return editor && (
     <MenuGroup>
-      <button type="button" onClick={() => editor.chain().focus().setHorizontalRule().run()}>---</button>
-      <button type="button" onClick={addImage}>Image</button>
+      <button type="button" onClick={() => editor.chain().focus().setHorizontalRule().run()}>
+        <img alt="horizontal line" src={hrSvg} />
+      </button>
+      <button type="button" onClick={addImage}>
+        <img alt="icon-img" src={imgSvg} />
+      </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive('bulletList') ? 'is-active' : ''}
       >
-        Bulleted
+        <img alt="buletted" src={bulettedSvg} />
       </button>
       <button
         type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive('orderedList') ? 'is-active' : ''}
       >
-        Ordered
+        <img alt="numbered" src={numberedSvg} />
       </button>
     </MenuGroup>
   );

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import tableSvg from 'components/editor/assets/icons/table.svg';
 import MenuGroup from './menu-group';
 
 const TableGroup = () => {
@@ -7,7 +8,7 @@ const TableGroup = () => {
   return (
     <MenuGroup>
       <button type="button" onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}>
-        insertTable
+        <img alt="table" src={tableSvg} />
       </button>
       <button type="button" onClick={() => editor.chain().focus().addColumnBefore().run()} disabled={!editor.can().addColumnBefore()}>
         addColumnBefore

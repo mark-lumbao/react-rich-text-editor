@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import codeSvg from 'components/editor/assets/icons/programming.svg';
 import MenuGroup from './menu-group';
 
 const CodeblockGroup = () => {
@@ -11,7 +12,7 @@ const CodeblockGroup = () => {
         className={editor.isActive('codeBlock') ? 'is-active' : ''}
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
       >
-        Code
+        <img alt="code" src={codeSvg} />
       </button>
     </MenuGroup>
   );

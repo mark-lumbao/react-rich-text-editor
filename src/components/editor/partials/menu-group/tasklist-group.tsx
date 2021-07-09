@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
+import listSvg from 'components/editor/assets/icons/checklist.svg';
 import MenuGroup from './menu-group';
 
 const TasklistGroup = () => {
@@ -12,7 +13,7 @@ const TasklistGroup = () => {
         onClick={() => editor.chain().focus().toggleTaskList().run()}
         className={editor.isActive('taskList') ? 'is-active' : ''}
       >
-        tasklist
+        <img alt="checklist" src={listSvg} />
       </button>
     </MenuGroup>
   );
