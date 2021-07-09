@@ -4,6 +4,7 @@
   "description": "React Typescript Boilerplate Project",
   "main": "index.js",
   "scripts": {
+    "start": "serve public",
     "analyze": "env-cmd webpack --mode production --analyze",
     "build": "env-cmd webpack --mode production",
     "start:dev": "env-cmd webpack serve --hot --progress --mode development",
@@ -45,7 +46,8 @@
     "@tiptap/react": "^2.0.0-beta.51",
     "jest-transform-stub": "^2.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "serve": "^12.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
