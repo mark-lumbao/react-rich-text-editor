@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "serve public",
-    "analyze": "env-cmd webpack --mode production --analyze",
-    "build": "env-cmd webpack --mode production",
-    "start:dev": "env-cmd webpack serve --hot --progress --mode development",
+    "analyze": "cross-env TS_NODE_PROJECT=webpack-tsconfig.json webpack --mode production --analyze",
+    "build": "cross-env TS_NODE_PROJECT=webpack-tsconfig.json webpack --mode production",
+    "start:dev": "cross-env TS_NODE_PROJECT=webpack-tsconfig.json webpack serve --hot --progress --mode development",
     "test": "jest --verbose --colors"
   },
   "keywords": [
@@ -67,8 +67,8 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "compression-webpack-plugin": "^8.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
-    "env-cmd": "^10.1.0",
     "eslint": "^7.29.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.4",
