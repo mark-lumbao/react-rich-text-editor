@@ -1,4 +1,6 @@
 .env
 
+.firebase
+
 public
 node_modules
