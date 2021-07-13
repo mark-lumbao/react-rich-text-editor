@@ -1,39 +1,36 @@
-import {
-  lazy, Suspense, createContext, HtmlHTMLAttributes,
-} from 'react';
+import { lazy, Suspense, createContext } from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
-import editorExtensions, { EditorExtensionsType } from './partials/ext';
-import editorNodes, { EditorNodesType } from './partials/nodes';
+import editorExtensions from './partials/ext';
+import editorNodes from './partials/nodes';
 import editorMarks from './partials/marks';
+import { EditorType } from './types';
 import './scss/index.scss';
 
 const CharacterCount = lazy(() => import('./partials/character-count'));
 const MenuBar = lazy(() => import('./partials/menu-bar'));
-
-export type EditorType = HtmlHTMLAttributes<HTMLDivElement> & {
-  initialValue?: string;
-  onChange?: (initialValue: string) => void;
-  extensionsConfig?: EditorExtensionsType;
-  nodesConfig?: EditorNodesType,
-}
 
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const EditorMain = ({
   initialValue: content,
   onChange,
-  extensionsConfig,
-  nodesConfig,
+  config,
   className = '',
   ...divProps
 }: EditorType) => {
+  const nodesConfig = config ? config.nodes : {};
+  const extensionsConfig = config ? config.extensions : {};
+  const marksConfig = config ? config.marks : {};
+
   const editor = useEditor({
     content,
-    onUpdate({ editor: ed }) { onChange(ed.getHTML()); },
+    onUpdate({ editor: ed }) {
+      if (onChange) onChange(ed.getHTML());
+    },
     extensions: [
       ...editorExtensions(extensionsConfig),
       ...editorNodes(nodesConfig),
-      ...editorMarks,
+      ...editorMarks(marksConfig),
     ],
   });
 

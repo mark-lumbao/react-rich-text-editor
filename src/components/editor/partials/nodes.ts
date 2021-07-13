@@ -8,33 +8,31 @@ import Image from '@tiptap/extension-image';
 import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
-import Table, { TableOptions } from '@tiptap/extension-table';
+import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
+import { IEditorNodes } from 'components/editor/types';
 
-export type EditorNodesType = Partial<{
-} & TableOptions>;
-
-const editorNodes = (nd: EditorNodesType) => [
-  Document,
-  Text,
-  Paragraph,
-  CodeBlock,
-  Heading,
-  HorizontalRule,
-  Image,
-  ListItem,
-  BulletList,
-  OrderedList,
-  Table.configure(nd),
-  TableRow,
-  TableCell,
-  TableHeader,
-  TaskList,
-  TaskItem,
+const editorNodes: IEditorNodes = (nd) => [
+  Document.configure(nd),
+  Text.configure(nd),
+  Paragraph.configure(nd),
+  CodeBlock.configure(nd),
+  Heading.configure(nd),
+  HorizontalRule.configure(nd),
+  Image.configure(nd),
+  ListItem.configure(nd),
+  BulletList.configure(nd),
+  OrderedList.configure(nd),
+  Table.configure(nd).configure(nd),
+  TableRow.configure(nd),
+  TableCell.configure(nd),
+  TableHeader.configure(nd),
+  TaskList.configure(nd),
+  TaskItem.configure(nd),
 ];
 
 export default editorNodes;

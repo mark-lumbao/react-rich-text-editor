@@ -1,10 +1,8 @@
 import { useContext } from 'react';
 import { EditorContext } from 'components/editor';
-import { EditorExtensionsType } from './ext';
+import { IEditorExtensionOptions } from '../types/ext';
 
-export interface CharacterCountProps extends EditorExtensionsType {}
-
-const CharacterCount = ({ useCharacterCount = false, limit }: CharacterCountProps) => {
+const CharacterCount = ({ useCharacterCount = false, limit }: Partial<IEditorExtensionOptions>) => {
   const { editor } = useContext(EditorContext);
 
   return useCharacterCount && (

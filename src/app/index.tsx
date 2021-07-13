@@ -15,14 +15,16 @@ const App = () => (
     <Suspense fallback={<div>Loading Editor...</div>}>
       <Editor
         className="myCustomClass"
-        style={{ maxWidth: 500 }}
+        style={{ maxWidth: 600, margin: 10 }}
         onChange={(value) => console.log(value)} // eslint-disable-line
         initialValue="<h1>Initial content</h1>"
-        nodesConfig={{ resizable: true }}
-        extensionsConfig={{
-          limit: 100,
-          useCharacterCount: true,
-          placeholder: 'Write a goddarn text!',
+        config={{
+          nodes: { resizable: true },
+          extensions: {
+            limit: 100,
+            useCharacterCount: true,
+            placeholder: 'Write a goddarn text!',
+          },
         }}
       />
     </Suspense>

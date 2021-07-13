@@ -1,22 +1,16 @@
-import Dropcursor, { DropcursorOptions } from '@tiptap/extension-dropcursor';
-import CharacterCount, { CharacterCountOptions } from '@tiptap/extension-character-count';
-import Placeholder, { PlaceholderOptions } from '@tiptap/extension-placeholder';
-import History, { HistoryOptions } from '@tiptap/extension-history';
+import Dropcursor from '@tiptap/extension-dropcursor';
+import CharacterCount from '@tiptap/extension-character-count';
+import Placeholder from '@tiptap/extension-placeholder';
+import History from '@tiptap/extension-history';
 import Gapcursor from '@tiptap/extension-gapcursor';
+import { IEditorExtensions } from 'components/editor/types';
 
-export type EditorExtensionsType = Partial<{
-  useCharacterCount: boolean,
-} & CharacterCountOptions &
-  PlaceholderOptions &
-  HistoryOptions &
-  DropcursorOptions>;
-
-const editorExtensions = (xt: EditorExtensionsType) => [
+const EditorExtensions: IEditorExtensions = (xt) => [
   Dropcursor.configure(xt),
-  CharacterCount.configure(xt),
+  xt.useCharacterCount && CharacterCount.configure(xt),
   Placeholder.configure(xt),
-  History,
-  Gapcursor,
+  History.configure(xt),
+  Gapcursor.configure(xt),
 ];
 
-export default editorExtensions;
+export default EditorExtensions;

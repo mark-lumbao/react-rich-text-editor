@@ -2,9 +2,12 @@ a {
   text-decoration: none;
 }
 
-a::before {
-  content: '#';
+a:hover {
+  &:after {
+    content: ' #';
+  }
 }
+
 
 main {
   position: absolute;
@@ -16,4 +19,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 320px) {
+    h1 {
+      padding: 10px;
+    }
+  }
 }
