@@ -16,7 +16,7 @@ import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
 import { IEditorNodes } from 'components/editor/types';
 
-const editorNodes: IEditorNodes = (nd) => [
+const editorNodes: IEditorNodes = ({ disableTable, ...nd }) => [
   Document.configure(nd),
   Text.configure(nd),
   Paragraph.configure(nd),
@@ -27,10 +27,10 @@ const editorNodes: IEditorNodes = (nd) => [
   ListItem.configure(nd),
   BulletList.configure(nd),
   OrderedList.configure(nd),
-  Table.configure(nd).configure(nd),
-  TableRow.configure(nd),
-  TableCell.configure(nd),
-  TableHeader.configure(nd),
+  !disableTable && Table.configure(nd).configure(nd),
+  !disableTable && TableRow.configure(nd),
+  !disableTable && TableCell.configure(nd),
+  !disableTable && TableHeader.configure(nd),
   TaskList.configure(nd),
   TaskItem.configure(nd),
 ];

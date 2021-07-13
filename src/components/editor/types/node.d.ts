@@ -30,6 +30,7 @@ export interface IEditorNodeOptions extends
   TableHeaderOptions,
   TaskListOptions,
   TaskItemOptions {
+    disableTable: boolean;
   }
 
 export interface IEditorNodes {
