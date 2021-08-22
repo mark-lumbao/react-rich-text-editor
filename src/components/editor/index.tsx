@@ -5,13 +5,11 @@ import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions from './partials/ext';
 import editorNodes from './partials/nodes';
 import editorMarks from './partials/marks';
-import { EditorType } from './types';
+import { EditorType } from '.';
 import { sanitizeConfig } from './util';
 import './scss/index.scss';
 
-/* TODO FIX can't export .d.ts files.
- * export * from './types';
- */
+export * from './types';
 
 export const EditorContext = createContext<{ editor: Editor }>(null);
 

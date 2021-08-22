@@ -27,7 +27,7 @@ const config: Configuration & { devServer: typeof devServer } = ({
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
