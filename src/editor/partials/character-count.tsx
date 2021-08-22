@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import { IEditorExtensionOptions } from 'components/editor/types';
+import { EditorContext } from 'editor';
+import { IEditorExtensionOptions } from 'editor/types';
 
 const CharacterCount = ({ useCharacterCount = false, limit }: Partial<IEditorExtensionOptions>) => {
   const { editor } = useContext(EditorContext);

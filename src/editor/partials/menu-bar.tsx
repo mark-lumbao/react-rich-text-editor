@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { IEditorConfig } from 'components/editor/types';
+import { IEditorConfig } from 'editor/types';
 
 const HistoryGroup = lazy(() => import('./menu-group/history-group'));
 const CodeblockGroup = lazy(() => import('./menu-group/codeblock-group'));

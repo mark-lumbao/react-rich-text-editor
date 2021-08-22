@@ -1,10 +1,10 @@
 import { Fragment, useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import { IEditorNodeOptions } from 'components/editor/types';
-import hrSvg from 'components/editor/assets/icons/horizontal-line.svg';
-import imgSvg from 'components/editor/assets/icons/image.svg';
-import bulettedSvg from 'components/editor/assets/icons/list_bulleted.svg';
-import numberedSvg from 'components/editor/assets/icons/list_numbered.svg';
+import { EditorContext } from 'editor';
+import { IEditorNodeOptions } from 'editor/types';
+import hrSvg from 'editor/assets/icons/horizontal-line.svg';
+import imgSvg from 'editor/assets/icons/image.svg';
+import bulettedSvg from 'editor/assets/icons/list_bulleted.svg';
+import numberedSvg from 'editor/assets/icons/list_numbered.svg';
 import MenuGroup from './menu-group';
 
 const MarkupGroup = ({

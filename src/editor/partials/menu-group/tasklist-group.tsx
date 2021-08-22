@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import listSvg from 'components/editor/assets/icons/checklist.svg';
+import { EditorContext } from 'editor';
+import listSvg from 'editor/assets/icons/checklist.svg';
 import MenuGroup from './menu-group';
 
 const TasklistGroup = () => {

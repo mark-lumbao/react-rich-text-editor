@@ -14,7 +14,7 @@ import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
-import { IEditorNodes } from 'components/editor/types';
+import { IEditorNodes } from 'editor/types';
 
 const editorNodes: IEditorNodes = ({
   disableTable, disableList, disableTask,

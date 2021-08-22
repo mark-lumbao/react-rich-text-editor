@@ -3,4 +3,6 @@
 .firebase
 
 public
+lib
+
 node_modules

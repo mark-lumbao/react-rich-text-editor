@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import tableSvg from 'components/editor/assets/icons/table.svg';
+import { EditorContext } from 'editor';
+import tableSvg from 'editor/assets/icons/table.svg';
 import MenuGroup from './menu-group';
 
 const TableGroup = () => {

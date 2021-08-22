@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import undoSvg from 'components/editor/assets/icons/undo.svg';
-import redoSvg from 'components/editor/assets/icons/redo.svg';
+import { EditorContext } from 'editor';
+import undoSvg from 'editor/assets/icons/undo.svg';
+import redoSvg from 'editor/assets/icons/redo.svg';
 import MenuGroup from './menu-group';
 
 const HistoryGroup = () => {

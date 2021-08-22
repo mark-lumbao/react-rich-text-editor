@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import h1Svg from 'components/editor/assets/icons/h1.svg';
-import h2Svg from 'components/editor/assets/icons/h2.svg';
-import h3Svg from 'components/editor/assets/icons/h3.svg';
+import { EditorContext } from 'editor';
+import h1Svg from 'editor/assets/icons/h1.svg';
+import h2Svg from 'editor/assets/icons/h2.svg';
+import h3Svg from 'editor/assets/icons/h3.svg';
 import MenuGroup from './menu-group';
 
 const HeadingGroup = () => {

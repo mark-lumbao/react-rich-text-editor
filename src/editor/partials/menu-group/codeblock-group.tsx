@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import codeSvg from 'components/editor/assets/icons/programming.svg';
+import { EditorContext } from 'editor';
+import codeSvg from 'editor/assets/icons/programming.svg';
 import MenuGroup from './menu-group';
 
 const CodeblockGroup = () => {

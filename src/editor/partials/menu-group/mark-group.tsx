@@ -1,10 +1,10 @@
 import { Fragment, useContext } from 'react';
-import { EditorContext } from 'components/editor';
-import boldSvg from 'components/editor/assets/icons/bold.svg';
-import italicSvg from 'components/editor/assets/icons/italic.svg';
-import underlineSvg from 'components/editor/assets/icons/underlined.svg';
-import linkSvg from 'components/editor/assets/icons/link.svg';
-import { IEditorMarkOptions } from 'components/editor/types';
+import { EditorContext } from 'editor';
+import boldSvg from 'editor/assets/icons/bold.svg';
+import italicSvg from 'editor/assets/icons/italic.svg';
+import underlineSvg from 'editor/assets/icons/underlined.svg';
+import linkSvg from 'editor/assets/icons/link.svg';
+import { IEditorMarkOptions } from 'editor/types';
 import MenuGroup from './menu-group';
 
 const MarkGroup = ({ disableLinks, disableMarks }: Partial<IEditorMarkOptions>) => {

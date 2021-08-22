@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 
-const Editor = lazy(() => import('components/editor'));
+const Editor = lazy(() => import('editor'));
 
 const App = () => (
   <main>
