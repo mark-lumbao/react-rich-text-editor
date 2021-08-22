@@ -1,4 +1,6 @@
-import { lazy, Suspense, createContext } from 'react';
+import {
+  useEffect, lazy, Suspense, createContext,
+} from 'react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import editorExtensions from './partials/ext';
 import editorNodes from './partials/nodes';
@@ -7,19 +9,22 @@ import { EditorType } from './types';
 import { sanitizeConfig } from './util';
 import './scss/index.scss';
 
+/* TODO FIX can't export .d.ts files.
+ * export * from './types';
+ */
+
 export const EditorContext = createContext<{ editor: Editor }>(null);
 
 const CharacterCount = lazy(() => import('./partials/character-count'));
 const MenuBar = lazy(() => import('./partials/menu-bar'));
 
 const EditorMain = ({
-  initialValue: content,
-  onChange,
-  config = { nodes: {}, extensions: {}, marks: {} },
-  className = '',
-  ...divProps
+  value: content, onChange, config, className = '', ...divProps
 }: EditorType) => {
-  const { nodes, marks, extensions } = sanitizeConfig(config);
+  const sanitizedConfig = sanitizeConfig({ ...config });
+  const {
+    menubar, nodes, marks, extensions,
+  } = sanitizedConfig;
 
   const editor = useEditor({
     content,
@@ -31,12 +36,20 @@ const EditorMain = ({
     ],
   });
 
+  const pos = menubar.position === 'bottom' ? 'reverse' : '';
+
+  useEffect(() => { // triggers clear whenever content is null
+    if (!content && editor) editor.commands.clearContent(true);
+  }, [content]);
+
   return (
     <EditorContext.Provider value={{ editor }}>
-      <div className={`editor--container ${className}`} {...divProps}>
-        <Suspense fallback="Loading Menubar ..."><MenuBar {...config} /></Suspense>
-        <EditorContent editor={editor} />
-        <Suspense fallback="Loading Character counter ..."><CharacterCount {...extensions} /></Suspense>
+      <div className={`editor--container ${pos} ${className}`} {...divProps}>
+        <Suspense fallback="Loading Menubar ..."><MenuBar {...sanitizedConfig} /></Suspense>
+        <div>
+          <EditorContent editor={editor} />
+          <Suspense fallback="Loading Character counter ..."><CharacterCount {...extensions} /></Suspense>
+        </div>
       </div>
     </EditorContext.Provider>
   );

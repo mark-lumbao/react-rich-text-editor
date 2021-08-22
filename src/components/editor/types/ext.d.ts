@@ -11,6 +11,7 @@ export interface IEditorExtensionOptions extends
   PlaceholderOptions,
   HistoryOptions {
     useCharacterCount: boolean;
+    disableHistory: boolean;
   }
 
 export interface IEditorExtensions {

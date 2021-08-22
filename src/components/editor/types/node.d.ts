@@ -31,6 +31,12 @@ export interface IEditorNodeOptions extends
   TaskListOptions,
   TaskItemOptions {
     disableTable: boolean;
+    disableTask: boolean;
+    disableList: boolean;
+    disableHorizontalRule: boolean;
+    disableImage: boolean;
+    disableHeading: boolean;
+    disableCodeblock: boolean;
   }
 
 export interface IEditorNodes {

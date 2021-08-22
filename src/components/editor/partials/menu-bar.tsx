@@ -9,16 +9,25 @@ const MarkGroup = lazy(() => import('./menu-group/mark-group'));
 const TableGroup = lazy(() => import('./menu-group/table-group'));
 const TasklistGroup = lazy(() => import('./menu-group/tasklist-group'));
 
-const MenuBar = ({ nodes: { disableTable } }: Partial<IEditorConfig>) => (
+const MenuBar = ({
+  nodes: {
+    disableTable, disableHeading, disableCodeblock,
+    disableTask, ...nodeOpts
+  },
+  extensions: { disableHistory },
+  marks,
+  menubar: { extras },
+}: Partial<IEditorConfig>) => (
   <Suspense fallback={<span>Loading menu items</span>}>
-    <div className="editor--menu">
-      <HeaingGroup />
-      <MarkGroup />
-      <HistoryGroup />
-      <CodeblockGroup />
-      <MarkupGroup />
+    <div className={`editor--menu ${extras && 'extended'}`}>
+      {!disableHeading && <HeaingGroup />}
+      <MarkGroup {...marks} />
+      <MarkupGroup {...nodeOpts} />
+      {!disableHistory && <HistoryGroup />}
+      {!disableCodeblock && <CodeblockGroup />}
       {!disableTable && <TableGroup />}
-      <TasklistGroup />
+      {!disableTask && <TasklistGroup />}
+      {extras}
     </div>
   </Suspense>
 );

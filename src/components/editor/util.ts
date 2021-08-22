@@ -4,22 +4,22 @@ export const sanitizeConfig = ({
   nodes = {},
   extensions = {},
   marks = {},
+  menubar = { position: 'top' },
 }: Partial<IEditorConfig>): IEditorConfig => {
-  const nodesConfig = nodes;
   const extensionsConfig = extensions;
-  const marksConfig = marks;
 
   const refinedExtConfig = {
     ...extensionsConfig,
-    limit: nodesConfig.disableTable
+    limit: nodes.disableTable
       ? extensionsConfig.limit
       : undefined,
   };
 
   return ({
-    nodes: nodesConfig,
     extensions: refinedExtConfig,
-    marks: marksConfig,
+    nodes,
+    marks,
+    menubar,
   });
 };
 

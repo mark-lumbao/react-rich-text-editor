@@ -16,23 +16,27 @@ import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
 import { IEditorNodes } from 'components/editor/types';
 
-const editorNodes: IEditorNodes = ({ disableTable, ...nd }) => [
+const editorNodes: IEditorNodes = ({
+  disableTable, disableList, disableTask,
+  disableImage, disableHorizontalRule, disableHeading,
+  disableCodeblock, ...nd
+}) => [
   Document.configure(nd),
   Text.configure(nd),
   Paragraph.configure(nd),
-  CodeBlock.configure(nd),
-  Heading.configure(nd),
-  HorizontalRule.configure(nd),
-  Image.configure(nd),
-  ListItem.configure(nd),
-  BulletList.configure(nd),
-  OrderedList.configure(nd),
+  !disableCodeblock && CodeBlock.configure(nd),
+  !disableHeading && Heading.configure(nd),
+  !disableHorizontalRule && HorizontalRule.configure(nd),
+  !disableImage && Image.configure(nd),
+  !disableList && ListItem.configure(nd),
+  !disableList && BulletList.configure(nd),
+  !disableList && OrderedList.configure(nd),
   !disableTable && Table.configure(nd).configure(nd),
   !disableTable && TableRow.configure(nd),
   !disableTable && TableCell.configure(nd),
   !disableTable && TableHeader.configure(nd),
-  TaskList.configure(nd),
-  TaskItem.configure(nd),
+  !disableTask && TaskList.configure(nd),
+  !disableTask && TaskItem.configure(nd),
 ];
 
 export default editorNodes;

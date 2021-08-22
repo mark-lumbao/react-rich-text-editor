@@ -44,3 +44,9 @@
     width: 2px;
   }
 }
+
+.editor--menu.extended {
+  > :last-child {
+    display: block;
+  }
+}

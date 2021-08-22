@@ -21,7 +21,7 @@ const config: Configuration & { devServer: typeof devServer } = ({
   entry: `${__dirname}/src/index.tsx`,
   output: {
     path: `${__dirname}/public`,
-    filename: '[id][hash].js',
+    filename: '[id][chunkhash].js',
     chunkFilename: '[chunkhash].js',
   },
   module: {
@@ -40,7 +40,7 @@ const config: Configuration & { devServer: typeof devServer } = ({
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         type: 'asset/resource',
       },
     ],
@@ -50,7 +50,7 @@ const config: Configuration & { devServer: typeof devServer } = ({
       'node_modules',
       'src',
     ],
-    extensions: ['.ts', '.tsx', '.js', ',jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   optimization: {
     splitChunks: {

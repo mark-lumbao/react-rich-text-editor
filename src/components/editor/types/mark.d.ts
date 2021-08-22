@@ -8,7 +8,10 @@ export interface IEditorMarkOptions extends
   BoldOptions,
   UnderlineOptions,
   LinkOptions,
-  ItalicOptions {}
+  ItalicOptions {
+    disableMarks: boolean;
+    disableLinks: boolean;
+  }
 
 export interface IEditorMarks {
   (mk: Partial<IEditorMarkOptions>): Mark<unknown>[];
